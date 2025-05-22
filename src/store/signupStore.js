@@ -18,7 +18,6 @@ const signupStore = create((set, get) => ({
    */
   async registerUser(formData) {
     set({ signupLoader: true });
-    console.log("inside signup");
 
     try {
       const response = await axios.post(
@@ -28,7 +27,6 @@ const signupStore = create((set, get) => ({
           headers: { "Content-Type": "application/json" },
         }
       );
-console.log("inside signup res", response);
 
       set({
         signupLoader: false,

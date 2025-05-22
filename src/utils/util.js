@@ -3,8 +3,6 @@
  * @param {Object} field - React Hook Form field object.
  */
 export const handleNameChange = ({ e, field }) => {
-  console.log("handleNameChange", e.target);
-
   e.target.value = e.target.value.trimStart().replace(/\s+/g, " ");
   const newValue = e.target.value;
   if (/^[a-zA-Z ]*$/.test(newValue)) {
@@ -40,6 +38,5 @@ export const handlePasswordChange = ({ e, field }) => {
   if (e.target.value) {
     e.target.value = e.target.value.replace(/\s/g, "");
   }
-
   field.onChange(e);
 };

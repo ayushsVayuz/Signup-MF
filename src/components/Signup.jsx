@@ -11,7 +11,6 @@ function Signup() {
     const navigate = useNavigate(); 
     const { signupLoader, registerUser } = signupStore();
     const [showPassword, setShowPassword] = useState(false);
-
     const {
         control,
         handleSubmit,
@@ -21,7 +20,6 @@ function Signup() {
         mode: "onChange",
         defaultValues: { email: "", password: "" }
     });
-
 
     const formData = watch();
     const isValid = Object.keys(errors).length === 0 && Object.values(formData).every(value => value?.trim() !== "");
@@ -43,22 +41,18 @@ function Signup() {
             if (response.data.statusCode === 201) {
                 navigate("/login")
             }
-
         } catch (error) {
             console.log("Error: " + (error?.message || "Something went wrong"));
         }
     };
 
     return (
-
         (
-
             <div className="min-h-screen flex items-center justify-center">
                 <form onSubmit={handleSubmit(handleSignup)} className="pl-6 pr-6 pt-1 pb-5 shadow-2xl bg-white rounded-lg w-full max-w-md mx-auto">
                     <h1 className="text-center text-blue-600 text-3xl font-medium">Create Account</h1>
 
                     <div className="flex flex-col space-y-4 mt-6">
-
                         <label className="text-sm font-medium text-gray-700 mb-1" >
                             Full Name <span className="text-red-500">*</span>
                         </label>
@@ -84,9 +78,7 @@ function Signup() {
                                         placeholder="Enter your full name"
                                         onChange={(e) => handleNameChange({ e, field })}
                                     />
-
                                     <p className="text-red-500 text-[13px] -mb-3 min-h-[20px]">{errors.fullName?.message}</p>
-
                                 </div>
                             )}
                         />
@@ -120,9 +112,7 @@ function Signup() {
                                         placeholder="Enter your email"
                                         onChange={(e) => handleEmailChange({ e, field })}
                                     />
-
                                     <p className="text-red-500 text-[13px] -mb-3 min-h-[20px]">{errors.email?.message}</p>
-
                                 </div>
                             )}
                         />
@@ -159,9 +149,7 @@ function Signup() {
                                         placeholder="Enter your phone number"
                                         onChange={(e) => handlePhoneChange({ e, field })}
                                     />
-
                                     <p className="text-red-500 text-[13px] -mb-3 min-h-[20px]">{errors.phoneNumber?.message}</p>
-
                                 </div>
                             )}
                         />
@@ -192,7 +180,6 @@ function Signup() {
                                         onChange={(e) => handlePasswordChange({ e, field })}
                                     />
 
-
                                     <span
                                         className="absolute right-10 top-4 cursor-pointer text-gray-600"
                                         onClick={() => setShowPassword((prev) => !prev)}
@@ -201,7 +188,6 @@ function Signup() {
                                     </span>
 
                                     <p className="text-red-500 text-[13px] -mb-3 min-h-[20px]">{errors.password?.message}</p>
-
                                 </div>
                             )}
                         />
@@ -228,9 +214,7 @@ function Signup() {
                     </div>
                 </form>
             </div>
-
         )
-
     );
 }
 
